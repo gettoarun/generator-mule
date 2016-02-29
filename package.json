@@ -1,16 +1,19 @@
 {
   "name": "generator-mule",
   "version": "1.0.0",
-  "description": "The Yeoman Generator for Mule Projects",
+  "description": "A Yeoman Generator for Mule Projects. Supports generating empty CE / EE Projects with Maven support",
   "main": "index.js",
   "files": [ 
     "generators/app",
     "generators/build",
     "generators/dockerize",
+    "generators/maven",
     "generators/git"
   ],
   "keywords": [
-    "yeoman-generator"
+    "yeoman-generator",
+    "mule",
+    "maven"
   ],
   "author": "Arun N. Kumar",
   "license": "ISC",
