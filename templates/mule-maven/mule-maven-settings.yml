@@ -1,0 +1,56 @@
+project-file:
+  path: ${project.destination.path}/.project
+  actions:
+    - action: add-xml-node
+      on: ce
+      path: /projectDescription/buildSpec
+      content: "<buildCommand>
+              <name>org.mule.tooling.maven.mavenBuilder</name>
+            </buildCommand>"
+      rollback:
+        on: un-ce
+        action: remove-xml-node
+        path: //buildCommand[ name/text() = 'org.mule.tooling.maven.mavenBuilder' ]
+
+    - action: add-xml-node
+      on: ce
+      path: /projectDescription/natures
+      content: "<nature>org.mule.tooling.maven.mavenNature</nature>"
+      rollback:
+        on: un-ce
+        action: remove-xml-node
+        path: //natures/nature[ text() = 'org.mule.tooling.maven.mavenNature' ]
+
+classpath-file:
+  path: ${project.destination.path}/.classpath
+  actions:
+    - action: add-xml-node
+      on: ce
+      path: /classpath
+      content: [  <classpathentry kind="var" path="M2_REPO/commons-logging/commons-logging/1.2/commons-logging-1.2.jar"/>,
+                  <classpathentry kind="var" path="M2_REPO/org/apache/ftpserver/ftplet-api/1.0.6/ftplet-api-1.0.6.jar"/>,
+                  <classpathentry kind="var" path="M2_REPO/org/apache/ftpserver/ftpserver-core/1.0.6/ftpserver-core-1.0.6.jar"/>,
+                  <classpathentry kind="var" path="M2_REPO/org/fusesource/jansi/jansi/1.8/jansi-1.8.jar"/>,
+                  <classpathentry kind="var" path="M2_REPO/jdom/jdom/1.0/jdom-1.0.jar"/>,
+                  <classpathentry kind="var" path="M2_REPO/com/github/jnr/jffi/1.2.5/jffi-1.2.5.jar"/>,
+                  <classpathentry kind="var" path="M2_REPO/com/github/jnr/jffi/1.2.10/jffi-1.2.10-native.jar"/>,
+                  <classpathentry kind="var" path="M2_REPO/org/apache/mina/mina-core/2.0.4/mina-core-2.0.4.jar"/>,
+                  <classpathentry kind="var" path="M2_REPO/org/mockito/mockito-core/1.9.5/mockito-core-1.9.5.jar"/>,
+                  <classpathentry kind="var" path="M2_REPO/org/objenesis/objenesis/1.0/objenesis-1.0.jar"/>,
+                  <classpathentry kind="var" path="M2_REPO/org/apache/sshd/sshd-core/0.6.0/sshd-core-0.6.0.jar"/> ]
+      rollback:
+        on: un-ce
+        action: remove-xml-node
+        path : //classpathentry[  @kind = "var" and ( 
+          @path = "M2_REPO/commons-logging/commons-logging/1.2/commons-logging-1.2.jar" or 
+          @path = "M2_REPO/org/apache/ftpserver/ftplet-api/1.0.6/ftplet-api-1.0.6.jar" or 
+          @path = "M2_REPO/org/apache/ftpserver/ftpserver-core/1.0.6/ftpserver-core-1.0.6.jar" or 
+          @path = "M2_REPO/org/fusesource/jansi/jansi/1.8/jansi-1.8.jar" or 
+          @path = "M2_REPO/jdom/jdom/1.0/jdom-1.0.jar" or 
+          @path = "M2_REPO/com/github/jnr/jffi/1.2.5/jffi-1.2.5.jar" or 
+          @path = "M2_REPO/com/github/jnr/jffi/1.2.10/jffi-1.2.10-native.jar" or 
+          @path = "M2_REPO/org/apache/mina/mina-core/2.0.4/mina-core-2.0.4.jar" or 
+          @path = "M2_REPO/org/mockito/mockito-core/1.9.5/mockito-core-1.9.5.jar" or 
+          @path = "M2_REPO/org/objenesis/objenesis/1.0/objenesis-1.0.jar" or 
+          @path = "M2_REPO/org/apache/sshd/sshd-core/0.6.0/sshd-core-0.6.0.jar" ) ]
+

@@ -1,0 +1,23 @@
+{
+  "name": "generator-mule",
+  "version": "1.0.0",
+  "description": "The Yeoman Generator for Mule Projects",
+  "main": "index.js",
+  "files": [ 
+    "generators/app",
+    "generators/build",
+    "generators/dockerize",
+    "generators/git"
+  ],
+  "keywords": [
+    "yeoman-generator"
+  ],
+  "author": "Arun N. Kumar",
+  "license": "ISC",
+  "dependencies": {
+    "js-yaml": "^3.5.3",
+    "xmldom": "^0.1.22",
+    "xpath": "0.0.21",
+    "yeoman-generator": "^0.22.5"
+  }
+}
