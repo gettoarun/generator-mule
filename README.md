@@ -20,6 +20,7 @@ Arguments:
   name           Type: String  Required: false
   description    Type: String  Required: false
 
+```
   To generate a mavenized pom configuration (supports both Community and Enterprise Edition projects)
 
 ``` shell
@@ -37,6 +38,7 @@ Options:
 ## Examples
 
   yo mule "sample project" "sample description"
+  
   yo mule:maven --ce
 
   To switch to EE config 
@@ -50,3 +52,4 @@ Options:
 * Gitlab    - A generator that wraps gitlab integration
               Will support create and mr as two actions
 * Dockerize - A generator that will embed a spotify/docker-maven-plugin integration
+* Document plugin - Especially the Maven YML settings file and customizations
